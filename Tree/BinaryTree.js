@@ -41,24 +41,69 @@ Tree.prototype = {
         }
     },
     preOrder: function (node) {
-        if (node) {
-            node.show()
-            this.preOrder(node.left)
-            this.preOrder(node.right)
+        // if (node) {
+        //     node.show()
+        //     this.preOrder(node.left)
+        //     this.preOrder(node.right)
+        // }
+        const result = []
+        const stack = []
+        let current = node
+        while (current || stack.length > 0) {
+            while (current) {
+                result.push(current.data)
+                stack.push(current)
+                current = current.left
+            }
+            current = stack.pop()
+            current = current.right
         }
+        return result
     },
     middleOrder: function (node) {
-        if (node) {
-            this.middleOrder(node.left)
-            node.show()
-            this.middleOrder(node.right)
+        // if (node) {
+        //     this.middleOrder(node.left)
+        //     node.show()
+        //     this.middleOrder(node.right)
+        // }
+        const result = []
+        const stack = []
+        let current = node
+        while (current || stack.length > 0) {
+            while (current) {
+                stack.push(current)
+                current = current.left
+            }
+            current = stack.pop()
+            result.push(current.data)
+            current = current.right
         }
     },
     laterOrder: function (node) {
-        if (node) {
-            this.laterOrder(node.left)
-            this.laterOrder(node.right)
-            node.show()
+        // if (node) {
+        //     this.laterOrder(node.left)
+        //     this.laterOrder(node.right)
+        //     node.show()
+        // }
+        const result = []
+        const stack = []
+        let last = null
+        let current = node
+        while (current || stack.length > 0) {
+            while (current) {
+                stack.push(current)
+                current = current.left
+            }
+            current = stack[stack.length - 1]
+            if (!current.right || current.right === last) {
+                current = stack.pop()
+                result.push(current.data)
+                last = current
+                current = null
+            } else {
+                current = current.right
+            }
         }
+        return result
     }
 }
