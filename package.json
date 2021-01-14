@@ -1,0 +1,20 @@
+{
+  "name": "algorithm-collection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JASONPANGGO/algorithm-collection.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JASONPANGGO/algorithm-collection/issues"
+  },
+  "homepage": "https://github.com/JASONPANGGO/algorithm-collection#readme"
+}
